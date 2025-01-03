@@ -33,7 +33,7 @@ export const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
     <div className="min-h-screen p-6 flex flex-col animate-fade-in">
       <div className="flex-1">
         <span className="flex gap-2 items-center justify-center mb-12">
-          <h1 className="text-3xl font-bold ">Pivot</h1>
+          <h1 className="text-3xl font-bold ">AI Coach</h1>
           <span className="text-[10px] px-4 py-1 rounded-full font-bold bg-blue-950 text-white">Beta</span>
         </span>
         <div className="flex flex-col gap-5">
