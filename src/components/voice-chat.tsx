@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Mic, Square, AudioLines, X, Lock, Send } from "lucide-react";
+import { Mic, X, Lock, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface VoiceChatProps {

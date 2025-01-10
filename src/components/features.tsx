@@ -29,18 +29,18 @@ export const Features = () => {
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
           Meet our most popular features to ace your interviews
         </h2>
-        <p className="text-xl text-gray-600">
+        <p className="text-xl text-gray-600 dark:text-muted-foreground">
           Practice with our AI interviewer and get comprehensive feedback to improve your performance
         </p>
       </div>
       <div className="grid md:grid-cols-3 gap-8">
         {features.map((feature, i) => (
-          <div key={i} className="bg-white p-6 rounded-2xl shadow-sm">
+          <div key={i} className="bg-white dark:bg-black/50 p-6 rounded-2xl shadow-sm">
             <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mb-4", feature.color)}>
               {feature.icon}
             </div>
             <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-            <p className="text-gray-600">{feature.description}</p>
+            <p className="text-gray-600 dark:text-muted-foreground">{feature.description}</p>
           </div>
         ))}
       </div>

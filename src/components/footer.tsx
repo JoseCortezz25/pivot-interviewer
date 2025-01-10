@@ -5,7 +5,7 @@ export const Footer = () => {
         <div className="flex items-center space-x-2">
           <span className="font-bold">AI Coach</span>
         </div>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-600 dark:text-muted-foreground">
           Created by <a href="" target="_blank" rel="noopener noreferrer" className="font-bold underline">@josecortezz16</a>
         </p>
       </div>

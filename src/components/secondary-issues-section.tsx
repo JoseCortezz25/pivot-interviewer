@@ -4,26 +4,26 @@ import { Globe, Headphones, IterationCwIcon, Mic } from "lucide-react";
 export const SecondaryIssuesSection = () => {
   const features = [
     {
-      color: "bg-purple-50",
-      icon: <Mic className="w-7 h-7 min-w-7 min-h-7 text-primary mb-3" />,
+      color: "bg-purple-50 dark:bg-transparent",
+      icon: <Mic className="w-7 h-7 min-w-7 min-h-7 text-primary mb-3 dark:text-purple-400" />,
       title: "Practice with Real-Time AI",
       description: "Simulate real job interviews by naturally conversing with our AI"
     },
     {
-      color: "bg-orange-50",
-      icon: <Headphones className="w-7 h-7 min-w-7 min-h-7 text-primary mb-3" />,
+      color: "bg-orange-50 dark:bg-transparent",
+      icon: <Headphones className="w-7 h-7 min-w-7 min-h-7 text-primary mb-3 dark:text-orange-400" />,
       title: "Instant Feedback",
       description: "Get detailed analysis of your answers and tips to improve your communication"
     },
     {
-      color: "bg-blue-50",
-      icon: <IterationCwIcon className="w-7 h-7 min-w-7 min-h-7 text-primary mb-3" />,
+      color: "bg-blue-50 dark:bg-transparent",
+      icon: <IterationCwIcon className="w-7 h-7 min-w-7 min-h-7 text-primary mb-3 dark:text-blue-400" />,
       title: "Risk-Free Practice",
       description: "Make mistakes, learn and improve in a safe environment before the real interview"
     },
     {
-      color: "bg-green-50",
-      icon: <Globe className="w-7 h-7 min-w-7 min-h-7 text-primary mb-3" />,
+      color: "bg-green-50 dark:bg-transparent",
+      icon: <Globe className="w-7 h-7 min-w-7 min-h-7 text-primary mb-3 dark:text-green-400" />,
       title: "Smart Multilanguage",
       description: "Practice in any language with automatic detection and level adaptation"
     }
@@ -37,7 +37,7 @@ export const SecondaryIssuesSection = () => {
             <div className={cn("p-6 rounded-2xl", feature.color)} key={feature.title}>
               {feature.icon}
               <h4 className="font-bold">{feature.title}</h4>
-              <p className="text-sm text-gray-600">{feature.description}</p>
+              <p className="text-sm text-gray-600 dark:text-white/80">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -45,7 +45,7 @@ export const SecondaryIssuesSection = () => {
           <h2 className="text-4xl font-bold mb-6">
             Comprehensive interview preparation for every scenario
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-gray-600 mb-8 dark:text-white/80">
             Whether you are preparing for technical roles or leadership positions, our AI adapts to provide relevant practice and feedback.
           </p>
         </div>
