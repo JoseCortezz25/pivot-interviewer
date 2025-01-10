@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Mic, X, Lock, Send } from "lucide-react";
+import { Mic, X, Lock, Send, Square } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface VoiceChatProps {
@@ -62,7 +62,7 @@ export const VoiceChat = ({ onCancel }: VoiceChatProps) => {
       {/* Controls */}
       <div className="w-full sm:w-[80%] lg:w-[50%] flex items-center justify-between gap-6 mb-12">
         <button
-          className=" h-[68px] w-[68px] min-h-[68px] min-w-[68px] rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
+          className="h-[68px] w-[68px] min-h-[68px] min-w-[68px] rounded-full bg-black/10 flex items-center justify-center hover:bg-black/25 transition-colors dark:bg-white/30"
           onClick={onCancel}
         >
           <X className="w-6 h-6" />
@@ -70,7 +70,7 @@ export const VoiceChat = ({ onCancel }: VoiceChatProps) => {
 
 
         <div className="relative">
-          <div className={cn("bg-primary/50 opacity-30 rounded-full h-[40px] w-[40px] flex items-center justify-center absolute -top-[65px] left-1/2 -translate-x-1/2",
+          <div className={cn("bg-primary/50  opacity-30 rounded-full h-[40px] w-[40px] flex items-center justify-center absolute -top-[65px] left-1/2 -translate-x-1/2",
             isRecording && !isLocked ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4")}>
             <Lock
               className={cn("text-secondary transition-all duration-300 h-5 w-5",
@@ -82,7 +82,7 @@ export const VoiceChat = ({ onCancel }: VoiceChatProps) => {
           <button
             ref={buttonRef}
             className={cn("recording-button touch-none h-[68px] w-[68px] min-h-[68px] min-w-[65px] rounded-full transition-all duration-300 flex items-center justify-center",
-              isRecording ? "bg-red-500 scale-110" : "bg-primary hover:bg-primary/90"
+              isRecording ? "bg-red-500 scale-110" : "bg-primary hover:bg-primary/90 dark:bg-[#1a1817]"
             )}
             onPointerDown={isLocked ? handleSend : handlePointerDown}
             onPointerMove={handlePointerMove}

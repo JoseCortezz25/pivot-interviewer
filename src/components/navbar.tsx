@@ -8,6 +8,7 @@ export const Navbar = () => {
         <div className="">
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-2xl font-bold">AI Coach</span>
+            <span className="bg-yellow-100 dark:bg-yellow-200/90 dark:text-black text-[12px] font-bold px-4 py-1 rounded-full">Beta</span>
           </Link>
         </div>
 
