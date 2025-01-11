@@ -1,6 +1,7 @@
-import { useState, useRef } from "react";
+import { useState, useRef, memo, ReactNode, RefObject } from "react";
 import { Mic, X, Lock, Send, Square } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ControlButtons from "./control-buttons";
 
 interface VoiceChatProps {
   onCancel: () => void;
@@ -60,7 +61,14 @@ export const VoiceChat = ({ onCancel }: VoiceChatProps) => {
       </div>
 
       {/* Controls */}
-      <div className="w-full sm:w-[80%] lg:w-[50%] flex items-center justify-between gap-6 mb-12">
+      <div className="">
+        <ControlButtons
+          // videoRef={null}
+          supportsVideo={false}
+          onVideoStreamChange={() => { }}
+        />
+      </div>
+      {/* <div className="w-full sm:w-[80%] lg:w-[50%] flex items-center justify-between gap-6 mb-12">
         <button
           className="h-[68px] w-[68px] min-h-[68px] min-w-[68px] rounded-full bg-black/10 flex items-center justify-center hover:bg-black/25 transition-colors dark:bg-white/30"
           onClick={onCancel}
@@ -99,7 +107,7 @@ export const VoiceChat = ({ onCancel }: VoiceChatProps) => {
           </button>
         </div>
 
-      </div>
+      </div> */}
 
       {/* Instructions text */}
       <p className="text-sm text-muted-foreground font-bold absolute bottom-8 pointer-events-none">
