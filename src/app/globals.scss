@@ -77,17 +77,13 @@
 
 .audioPulse {
   display: flex;
-  width: 24px;
-  justify-content: space-evenly;
+  gap: 8px;
   align-items: center;
   transition: all 0.5s;
+  transition: opacity 0.333s;
 
   & > div {
-    background-color: blue;
-    border-radius: 1000px;
-    width: 4px;
-    min-height: 4px;
-    border-radius: 1000px;
+    @apply bg-[#171717] dark:bg-[#ffffff] rounded-full w-[30px] min-h-[30px];
     transition: height 0.1s;
   }
 
@@ -95,14 +91,11 @@
     animation: hover 1.4s infinite alternate ease-in-out;
   }
 
-  height: 4px;
-  transition: opacity 0.333s;
-
   &.active {
     opacity: 1;
 
     & > div {
-      background-color: var(--Neutral-80);
+      @apply bg-[#171717] dark:bg-[#ffffff];
     }
   }
 }
@@ -176,7 +169,7 @@
 }
 
 @property --volume {
-  syntax: "length";
+  syntax: 'length';
   inherit: false;
   initial-value: 0px;
 }
@@ -210,7 +203,7 @@
     top: calc(var(--volume) * -1);
     left: calc(var(--volume) * -1);
     display: block;
-    content: "";
+    content: '';
     opacity: 0.35;
     background-color: var(--Red-500);
     width: calc(100% + var(--volume) * 2);
@@ -232,16 +225,17 @@
   }
 }
 
-.control-tray {
+.control-buttons {
   position: absolute;
+  width: 50%;
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 0);
   display: inline-flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   gap: 8px;
-  padding-bottom: 18px;
+  padding-bottom: 55px;
 
   .disabled .action-button,
   .action-button.disabled {
@@ -253,12 +247,8 @@
   .connection-container {
     @apply flex flex-col items-center justify-center gap-[4px];
 
-    .connection-button-container {
-      @apply bg-black text-white p-[10px] rounded-full;
-    }
-
     .text-indicator {
-      @apply text-[11px] text-black/50 select-none;
+      @apply text-[11px] text-black/50 dark:text-[#ececec] select-none;
     }
 
     &:not(.connected) {
@@ -281,7 +271,7 @@
 
   transition: all 0.6s ease-in;
 
-  &>* {
+  & > * {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -302,6 +292,10 @@
     opacity: 0.9;
   }
 }
-.mic-button {
-  @apply p-[10px] rounded-full bg-black text-white;
+.standard-button {
+  @apply bg-[#171717] text-white rounded-full min-h-[66px] min-w-[66px] h-[66px] w-[66px] flex items-center justify-center;
+}
+
+.standard-button.connected {
+  @apply bg-red-600;
 }

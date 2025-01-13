@@ -1,9 +1,8 @@
-
-import React from "react";
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 const lineCount = 3;
+const initialHeight = 30;
 
 export type AudioPulseProps = {
   active: boolean;
@@ -11,26 +10,42 @@ export type AudioPulseProps = {
   hover?: boolean;
 };
 
-export default function AudioPulse({ active, volume, hover }: AudioPulseProps) {
+export const AudioPulse = ({ active, volume, hover }: AudioPulseProps) => {
   const lines = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
     let timeout: number | null = null;
+
+    const resetLines = () => {
+      lines.current.forEach((line) => {
+        line.style.height = `${initialHeight}px`;
+      });
+    };
+
     const update = () => {
-      lines.current.forEach(
-        (line, i) =>
-        (line.style.height = `${Math.min(
-          24,
-          4 + volume * (i === 1 ? 400 : 60)
-        )}px`)
-      );
+      if (!active) {
+        resetLines();
+        return;
+      }
+
+      lines.current.forEach((line, i) => {
+        line.style.height = `${Math.max(
+          initialHeight,
+          Math.min(
+            60,
+            initialHeight + volume * (i === 1 ? 200 : 100)
+          )
+        )}px`;
+      });
       timeout = window.setTimeout(update, 100);
     };
 
     update();
-
-    return () => clearTimeout((timeout as number)!);
-  }, [volume]);
+    return () => {
+      clearTimeout(timeout!);
+      resetLines();
+    };
+  }, [volume, active]);
 
   return (
     <div className={cn("audioPulse", { active, hover })}>
@@ -40,9 +55,12 @@ export default function AudioPulse({ active, volume, hover }: AudioPulseProps) {
           <div
             key={i}
             ref={(el) => { lines.current[i] = el!; }}
-            style={{ animationDelay: `${i * 133}ms` }}
+            style={{
+              animationDelay: `${i * 133}ms`,
+              transition: 'height 0.2s ease-out'
+            }}
           />
         ))}
     </div>
   );
-}
+};
